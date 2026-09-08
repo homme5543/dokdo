@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="초등학생을 위한 쉽고 재미있는 독도 4지선다 퀴즈">
+  <title>도전! 독도 퀴즈</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="startScreen" class="screen start-screen" aria-labelledby="startTitle">
+      <div class="island-scene" aria-hidden="true">
+        <span class="sun">☀</span>
+        <span class="bird bird-one">⌁</span>
+        <span class="bird bird-two">⌁</span>
+        <div class="island island-left"></div>
+        <div class="island island-right"></div>
+        <div class="wave wave-one"></div>
+        <div class="wave wave-two"></div>
+      </div>
+      <div class="title-mark" aria-hidden="true">대한민국의 아름다운 섬</div>
+      <h1 id="startTitle">도전! <span>독도 퀴즈</span></h1>
+      <p class="lead">독도에 대해 얼마나 알고 있나요?<br>재미있는 10문제에 도전해 보세요!</p>
+      <div class="start-info" aria-label="퀴즈 안내">
+        <span>📝 10문제</span>
+        <span>🎯 4지선다</span>
+        <span>🌱 쉬운 해설</span>
+      </div>
+      <button id="startButton" class="primary-button" type="button">퀴즈 시작 <span aria-hidden="true">→</span></button>
+      <p id="startBestScore" class="best-score" aria-live="polite"></p>
+    </section>
+
+    <section id="quizScreen" class="screen quiz-screen" aria-labelledby="questionText" hidden>
+      <header class="quiz-header">
+        <div class="progress-row">
+          <p id="progressText" class="progress-text">1 / 10 문제</p>
+          <p id="liveScore" class="live-score">현재 0점</p>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="퀴즈 진행률" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1">
+          <div id="progressFill" class="progress-fill"></div>
+        </div>
+      </header>
+
+      <article class="quiz-card">
+        <div class="question-meta">
+          <span id="questionNumber" class="question-number">문제 1</span>
+          <span id="categoryBadge" class="category-badge">독도 상식</span>
+        </div>
+        <h2 id="questionText"></h2>
+        <div id="choices" class="choices" role="group" aria-label="답 선택"></div>
+
+        <div id="feedback" class="feedback" tabindex="-1" aria-live="polite" hidden>
+          <p id="feedbackTitle" class="feedback-title"></p>
+          <p id="explanation" class="explanation"></p>
+        </div>
+        <button id="nextButton" class="primary-button next-button" type="button" hidden>다음 문제 <span aria-hidden="true">→</span></button>
+      </article>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen" aria-labelledby="resultTitle" hidden>
+      <div id="resultIcon" class="result-icon" aria-hidden="true">🏆</div>
+      <p class="result-kicker">퀴즈 완료!</p>
+      <h2 id="resultTitle">정말 잘했어요!</h2>
+      <div class="score-ring" aria-label="최종 점수">
+        <strong id="finalScore">0</strong><span>점</span>
+      </div>
+      <p id="encouragement" class="encouragement"></p>
+      <div class="result-stats">
+        <div><span aria-hidden="true">✓</span><strong id="correctCount">0</strong><small>맞힌 문제</small></div>
+        <div><span aria-hidden="true">✕</span><strong id="wrongCount">0</strong><small>틀린 문제</small></div>
+      </div>
+      <p id="bestScore" class="best-score"></p>
+      <p id="newRecord" class="new-record" hidden>✨ 새로운 최고 기록이에요!</p>
+      <button id="restartButton" class="primary-button" type="button">다시 풀기 <span aria-hidden="true">↻</span></button>
+    </section>
+  </main>
+
+  <footer>
+    문제 내용은 <a href="https://dokdo.mofa.go.kr/" target="_blank" rel="noopener noreferrer">외교부 독도</a>의 공개 자료를 바탕으로 구성했습니다.
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
